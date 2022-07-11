@@ -1,0 +1,28 @@
+GET  http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjk2LCJuYW1lIjoiYXlhbSIsImVtYWlsIjoiYW5ha0BnbWFpbC5jb20iLCJpYXQiOjE2NTQ5MjI4NzEsImV4cCI6MTY1NDkyMjkzMX0.kP9uOUbfMNTkKBV6tC_pzCHl1GL5N5iPcIXUO6QLwMI
+###
+POST  http://localhost:5000/users
+Content-Type: application/json
+
+
+{
+    "name": "nanda",
+    "email": "nanad1221312dn219@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678"
+}
+
+###
+POST  http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "anak@gmail.com",
+    "password": "123"
+}
+
+###
+GET  http://localhost:5000/token
+
+###
+DELETE http://localhost:5000/logut
