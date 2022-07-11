@@ -1,6 +1,6 @@
 import {Sequelize} from "sequelize";
 
-const db = new Sequelize('learn_nodejs2','root','',{
+const db = new Sequelize('belajarnodejs','root','',{
     host: 'localhost',
     dialect: 'mysql'
 });

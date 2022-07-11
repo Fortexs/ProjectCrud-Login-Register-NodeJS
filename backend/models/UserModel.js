@@ -14,8 +14,9 @@ const Users = db.define('users', {
 
 export default Users;
 
+// Create Database
 // (async()=>{
-//     await datananda.sync();
+//     await Users.sync();
 // })();
 
 

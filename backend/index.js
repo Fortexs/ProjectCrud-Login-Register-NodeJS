@@ -9,9 +9,15 @@ const app = express();
 
 try {
     await db.authenticate();
-    console.log('DAtabase terkoneksi');
+    console.log('Database terkoneksi');
 } catch (error) {
     console.error(error);
 }
+
+
+app.use(cors());
+app.use(express.json());
+app.use(router);
+app.use(cookieParser());
 
 app.listen(5000, ()=> console.log("server jalan"));

@@ -11,10 +11,10 @@ function App() {
       <Routes> 
         <Route path="/" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="dashboard/*" element={<Navbar />}/>
+        <Route path="dashboard" element={<Navbar />}/>
       </Routes>
       <Routes> 
-        <Route path="dashboard/*" element={<Dashboard />}/>
+        <Route path="dashboard" element={<Dashboard />}/>
       </Routes>
     </BrowserRouter>
   );
