@@ -1,13 +1,15 @@
 GET  http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjk2LCJuYW1lIjoiYXlhbSIsImVtYWlsIjoiYW5ha0BnbWFpbC5jb20iLCJpYXQiOjE2NTQ5MjI4NzEsImV4cCI6MTY1NDkyMjkzMX0.kP9uOUbfMNTkKBV6tC_pzCHl1GL5N5iPcIXUO6QLwMI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsIm5hbWUiOiJuYW5kYXMiLCJlbWFpbCI6Im5hbmFkMTIyMTMxMmRuMjE5OUBnbWFpbC5jb20iLCJpYXQiOjE2NTc5ODA4MTgsImV4cCI6MTY1Nzk4MDgzM30.UumJAVdtIHqVwropGfKP-EqxKnG424K6ia2UIfs6eSI
+
+
 ###
 POST  http://localhost:5000/users
 Content-Type: application/json
 
 
 {
-    "name": "nanda",
-    "email": "nanad1221312dn219@gmail.com",
+    "name": "nandas",
+    "email": "nanad1221312dn2199@gmail.com",
     "password": "12345678",
     "confPassword": "12345678"
 }
@@ -17,8 +19,8 @@ POST  http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "anak@gmail.com",
-    "password": "123"
+    "email": "nanad1221312dn2199@gmail.com",
+    "password": "12345678"
 }
 
 ###
