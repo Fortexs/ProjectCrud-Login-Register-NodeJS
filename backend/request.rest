@@ -1,6 +1,6 @@
-GET  http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsIm5hbWUiOiJuYW5kYXMiLCJlbWFpbCI6Im5hbmFkMTIyMTMxMmRuMjE5OUBnbWFpbC5jb20iLCJpYXQiOjE2NTc5ODA4MTgsImV4cCI6MTY1Nzk4MDgzM30.UumJAVdtIHqVwropGfKP-EqxKnG424K6ia2UIfs6eSI
 
+GET  http://localhost:5000/users?page=&limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMDEsIm5hbWUiOiJuYW5kYSIsImVtYWlsIjoibmFuZGFuYWRsaXJpbkBnbWFpbC5jb20iLCJpYXQiOjE2NjAxNDQ5NTUsImV4cCI6MTY2MDE0NDk3MH0.-9Inhmx504OPmM42Oqz8AdhKkq890wWZmN1oaZleTiU
 
 ###
 POST  http://localhost:5000/users
@@ -8,10 +8,10 @@ Content-Type: application/json
 
 
 {
-    "name": "nandas",
-    "email": "nanad1221312dn2199@gmail.com",
-    "password": "12345678",
-    "confPassword": "12345678"
+    "name": "nanda",
+    "email": "nandanadlirin@gmail.com",
+    "password": "123",
+    "confPassword": "123"
 }
 
 ###
@@ -19,8 +19,8 @@ POST  http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "nanad1221312dn2199@gmail.com",
-    "password": "12345678"
+    "email": "nandanadlirin@gmail.com",
+    "password": "123"
 }
 
 ###

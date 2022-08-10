@@ -2,6 +2,7 @@ import Users from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { validationResult } from "express-validator";
+import { Op } from "sequelize";
 
 
 export const getUsers = async(req, res) => {
@@ -17,15 +18,22 @@ export const getUsers = async(req, res) => {
     }
 }
 
-export const Register = async(req, res, next) => {
+export const Register = async(req, res) => {
     const {name, email, password, confPassword} = req.body;
     if(password != confPassword) return res.status(400).json({msg: "password tidak sama"});
 
     // Validasi
     const errors = validationResult(req);
     if(!errors.isEmpty()){
-        return res.status(400).json(errors.array());
+        return res.status(400).json({ errors: errors.array() });
+
     }
+
+
+
+
+
+    
 
     const Email = await Users.findOne({ where: {email} });
     const Name = await Users.findOne({ where: {name} });
@@ -34,17 +42,18 @@ export const Register = async(req, res, next) => {
 
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
-    if(Email){
-        return res.status(401).send({msg: "eemail sudah terdaftar"});
-    }else if(Name){
-        return res.status(401).send({msg: "Nama sudah terdaftar"});
-    }else
-            await Users.create({
-                name: name,
-                email: email,
-                password: hashPassword,
-            });
-            res.json({msg: "Daftar Berhasil"});
+    try {
+        await Users.create({
+            name: name,
+            email: email,
+            password: hashPassword,
+        });
+        res.json({msg: "Daftar Berhasil"});
+    } catch (error) {
+        console.log(error);
+    }
+           
+        
 }
 
 export const Login = async(req, res) => {
@@ -101,4 +110,47 @@ export const Logout = async(req, res) => {
 
         res.clearCookie('refreshToken');
         return res.sendStatus(200);
+}
+
+
+
+export const searchUsers = async(req, res) => {
+
+    const page = parseInt(req.query.page) || 0;
+    const limit = parseInt(req.query.limit) || 10;
+    const search = req.query.search_query || "";
+    const offset = limit.page;
+    const totalBaris = await Users.count({
+        where:{
+            [Op.or]: [{name:{
+                [Op.like]: '%'+search+'%'
+            }}, {email:{
+                [Op.like]: '%'+search+'%'
+            }}]
+        }
+    });
+    const totalPage = Math.ceil(totalBaris / limit);
+    const result = await Users.findAll ({
+        where:{
+            [Op.or]: [{name:{
+                [Op.like]: '%'+search+'%'
+            }}, {email:{
+                [Op.like]: '%'+search+'%'
+            }}]
+        },
+        offset: offset,
+        limit: limit,
+        order:[
+            ['id', 'DESC']
+        ]
+    });
+    res.json({
+        result: result,
+        page: page,
+        limit: limit,
+        totalBaris: totalBaris,
+        totalPage: totalPage
+    });
+
+    
 }
