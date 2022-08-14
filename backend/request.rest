@@ -1,6 +1,6 @@
 
-GET  http://localhost:5000/users?page=&limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMDEsIm5hbWUiOiJuYW5kYSIsImVtYWlsIjoibmFuZGFuYWRsaXJpbkBnbWFpbC5jb20iLCJpYXQiOjE2NjAxNDQ5NTUsImV4cCI6MTY2MDE0NDk3MH0.-9Inhmx504OPmM42Oqz8AdhKkq890wWZmN1oaZleTiU
+GET  http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMDEsIm5hbWUiOiJuYW5kYSIsImVtYWlsIjoibmFuZGFuYWRsaXJpbkBnbWFpbC5jb20iLCJpYXQiOjE2NjA0NTc2MjMsImV4cCI6MTY2MDQ1NzYzOH0.B2FgHrdkFIXJ04TDqq7X725d3ARt1Dz9aXofJJkzXXs
 
 ###
 POST  http://localhost:5000/users
@@ -28,3 +28,6 @@ GET  http://localhost:5000/token
 
 ###
 DELETE http://localhost:5000/logut
+
+###
+GET  http://localhost:5000/search?page=&limit=10

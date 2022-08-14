@@ -6,11 +6,12 @@ import { getValidator } from "./validation.js";
 
 const router = express.Router();
 
-router.get('/users', verifyToken, searchUsers, getUsers);
+router.get('/users', verifyToken, getUsers);
 router.post('/users', getValidator, Register);
 router.post('/login', Login);
 router.get('/token', refreshToken);
 router.delete('/logut', Logout);
+router.get('/search', searchUsers);
 
 
 export default router;
